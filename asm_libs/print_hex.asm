@@ -11,7 +11,6 @@ hex_loop:
     cmp cx, 4
     je end
     
-    ; 1. convert last char of 'dx' to ascii
     mov ax, dx
     and ax, 0x000f
     add al, 0x30

@@ -1,6 +1,6 @@
 ;
 ; RogOS
-; File: print.asm
+; File: print_string.asm
 ;
 
 print_string:
