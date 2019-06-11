@@ -3,33 +3,33 @@
 ; File: bootloader.asm
 ;
 
-[org 0x7c00] ; global offset
+[org 0x7c00] ; bootloader offset
 
-mov bp, 0x8000      ; Save the stack from my bullshit
+mov bp, 0x9000      ; Set the stack
 mov sp, bp
 
-mov bx, 0x9000      ; es:bx = 0x0000:0x9000 = 0x09000
-mov dh, 2           ; read 2 sectors
-call disk_load
+mov bx, MSG_REAL_MODE
+call print_string
 
-mov dx, [0x9000]
-call print_hex
-call newline
-
-mov dx, [0x9000 + 512]
-call print_hex
-
-jmp $ ; jmp to current addr -> inf loop
+call switch_to_pm
+jmp $
 
 %include "asm_libs/disk.asm"
 %include "asm_libs/print_string.asm"
 %include "asm_libs/print_hex.asm"
+%include "asm_libs/32bit_print.asm"
+%include "asm_libs/32bit_gdt.asm"
+%include "asm_libs/32bit_switch.asm"
 
-; Padding & Magic Number
+[bits 32]
+BEGIN_PM:   ;after the switch you arrive here
+    mov ebx, MSG_PROT_MODE
+    call print_string_pm
+    jmp $
+
+MSG_REAL_MODE db "Started in 16-bit real mode", 0
+MSG_PROT_MODE db "Loaded 32-bit protected mode", 0
+
+;bootsector
 times 510-($-$$) db 0
-dw 0xaa55
-
-; boot sector = sector 1 of cyl 0 of head 0 of hdd 0
-; from now on = sector 2 ...
-times 256 dw 0xdada ; sector 2 = 512 bytes
-times 256 dw 0xface ; sector 3 = 512 bytes
+dw 0xaa55c
