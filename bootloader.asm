@@ -32,4 +32,4 @@ MSG_PROT_MODE db "Loaded 32-bit protected mode", 0
 
 ;bootsector
 times 510-($-$$) db 0
-dw 0xaa55c
+dw 0xaa55
