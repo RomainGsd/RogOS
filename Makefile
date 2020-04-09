@@ -1,4 +1,0 @@
-#
-# RogOS
-# File: Makefile
-#

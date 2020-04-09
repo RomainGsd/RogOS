@@ -5,16 +5,18 @@ In its actual state it is just a bootloader.
 
 ## Instructions
 ### Requirements
-You must install Nasm assembler and Qemu emulator.
+You must install Nasm assembler and Qemu emulator. \
+Please setup $TARGET: \c
+*export TARGET=i686-elf*
 ### Usage
 ```
 nasm -f bin bootloader.asm -o bootloader.bin
 qemu-system-x86_64 -drive format=raw,file=bootloader.bin
 ```
 Or you can run *(you fool)* the run.sh script. \
-It calls nasm and run to binary inside QEMU.
+It calls nasm and runs the binary inside QEMU.
 
-## Ressources
+## Resources
 The OSDev Wiki : https://wiki.osdev.org/ \
 The Cfenollosa tutorial : https://github.com/cfenollosa/os-tutorial
 

@@ -3,7 +3,7 @@
 ; File: bootloader.asm
 ;
 
-[org 0x7c00] ; bootloader offset
+[org 0x7c00]        ; bootloader offset
 
 mov bp, 0x9000      ; Set the stack
 mov sp, bp
