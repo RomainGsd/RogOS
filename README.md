@@ -6,7 +6,7 @@ In its actual state it is just a bootloader.
 ## Instructions
 ### Requirements
 You must install Nasm assembler and Qemu emulator. \
-Please setup $TARGET: \c
+Please setup $TARGET: \
 *export TARGET=i686-elf*
 ### Usage
 ```
