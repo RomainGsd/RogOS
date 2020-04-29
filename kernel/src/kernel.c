@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
+#include "../hdrs/colors.h"
 
 //Check if my x86-elf cross compiler is used correctly
 #if defined(__linux__)
@@ -17,7 +18,7 @@ const int           VGA_ROWS = 25;
 //Text is displayed in the screen's top-left (column = row = 0)
 int                 term_col = 0;
 int                 term_row = 0;
-uint8_t             term_color = 0x0F; //black background & white foreground
+uint8_t             term_color = WHITE;
 
 //Initiate term by clearing it
 void    term_init()
@@ -35,6 +36,11 @@ void    term_init()
 			vga_buffer[index] = ((uint16_t)term_col << 8) | ' '; //Set the character to blank
 		}
 	}
+}
+
+void	term_set_color(uint8_t color)
+{
+	term_color = color;
 }
 
 void    term_putc(char c)
@@ -57,6 +63,14 @@ void    term_putc(char c)
 	if (term_row >= VGA_ROWS) {
 		term_row = term_row = 0;
 	}
+}
+
+void    term_print_error(const char *str)
+{
+	term_set_color(RED);
+	for (size_t i = 0; str[i] != '\0'; i++)
+		term_putc(str[i]);
+	term_set_color(WHITE);
 }
 
 void    term_print(const char *str)
