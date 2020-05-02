@@ -1,1 +1,3 @@
-kernel/mykernel.elf
+kernel/build/kernel.elf
+.vscode/**
+kernel/src/*.o
