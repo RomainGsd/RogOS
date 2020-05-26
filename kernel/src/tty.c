@@ -3,7 +3,7 @@
  * Date: 29/04/2020
  */
 
-#include "term.h"
+#include "tty.h"
 
 //x86's VGA textmode buffer. Displaying text goes by writing data in this memory location
 volatile uint16_t   *vga_buffer = (uint16_t*)0xB8000;
@@ -39,7 +39,7 @@ void	term_set_color(uint8_t color)
 	term_color = color;
 }
 
-void    putc(char c)
+void    term_putc(char c)
 {
 	if (c == '\n') { //'\n' return a column 0 and increment the row
 		term_col = 0;
@@ -70,16 +70,16 @@ void    putc(char c)
 	}
 }
 
-void    write_err(const char *str)
+void    term_write_err(const char *str)
 {
 	term_set_color(RED);
 	for (size_t i = 0; str[i] != '\0'; i++)
-		putc(str[i]);
+		term_putc(str[i]);
 	term_set_color(WHITE);
 }
 
-void    write(const char *str)
+void    term_write(const char *str)
 {
 	for (size_t i = 0; str[i] != '\0'; i++)
-		putc(str[i]);
+		term_putc(str[i]);
 }

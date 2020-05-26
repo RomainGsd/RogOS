@@ -1,7 +1,7 @@
 /**
  * Author: RomainGsd
  * Date: 10/04/2020
- */
+*/
 
 #include "kernel.h"
 
@@ -16,10 +16,7 @@ void kernel_main()
 {
 	term_init();
 
-	write("Hello, World!\n");
-	write("Welcome to RogOS's kernel.\n");
-	write("Test\nTest\nTest\nTest\nTest\nTest\nTest\nTest\nTest\nTest\nTest\nTest\n");
-	write("Test2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\nTest2\n");
-	write("Test3\nTest3\nTest3\nTest3\nTest3\nTest3\n");
-	write("Final word");
+	term_write("Hello, World!\n");
+	term_write("Welcome to RogOS's kernel.\n");
+	detect_ansi("\x1b[031m");
 }

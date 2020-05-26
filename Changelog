@@ -1,3 +1,9 @@
+26/05/2020
+-----------
++ Started libc
++ Started ansi escape characters support
++ Better Makefile
+
 02/05/2020
 -----------
 + scrolling terminal

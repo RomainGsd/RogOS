@@ -9,6 +9,6 @@
 
 void    term_init();
 void	term_set_color(uint8_t color);
-void    putc(char c);
-void    write_err(const char *str);
-void    write(const char *str);
+void    term_putc(char c);
+void    term_write_err(const char *str);
+void    term_write(const char *str);
