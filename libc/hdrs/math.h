@@ -1,10 +1,10 @@
 /**
  * Author: RomainGsd
- * Date: 24/05/2020
- */
+ * Date: 28/05/2020
+*/
 
 #pragma once
 
 #include "kernel.h"
 
-int	check_hex_escape(char *str);
+//abs, log10, sqrt, floor, ...

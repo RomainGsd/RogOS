@@ -8,20 +8,14 @@ Then you must recompile your own GCC cross-compiler, as explained here : \
 https://wiki.osdev.org/GCC_Cross-Compiler
 ### Usage
 #### Kernel
-Go to 'kernel' directory and run :
 ```
 make
 make run
 ```
-#### Bootloader
-```
-nasm -f bin bootloader.asm -o bootloader.bin
-qemu-system-x86_64 -drive format=raw,file=bootloader.bin
-```
-Or you can run the run.sh script. \
-It calls nasm and runs the binary inside QEMU.
 
 ## Resources
 The OSDev Wiki : https://wiki.osdev.org/ \
+OSDever : http://www.osdever.net/ \
 The Cfenollosa tutorial : https://github.com/cfenollosa/os-tutorial \
+C ISO : http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf \
 Little OS book : http://littleosbook.github.io

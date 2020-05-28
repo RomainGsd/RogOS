@@ -7,7 +7,9 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdarg.h>
 #include "string.h"
+#include "stdio.h"
 #include "asm.h"
 #include "ansi.h"
 #include "tty.h"

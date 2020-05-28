@@ -2,4 +2,4 @@ build/kernel.elf
 .vscode/**
 kernel/src/*.o
 CMakeLists.txt
-kernel/src/ansi.c
+docs/
